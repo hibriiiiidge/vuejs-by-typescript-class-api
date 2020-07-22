@@ -1,13 +1,26 @@
 <template>
-  <button>
-    MyButton
+  <button @click="onClick" class="primary">
+    <slot />
   </button>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class MyButton extends Vue {
+  private count = 0;
+
+  @Prop()
+  public greet?: string;
+
+  @Emit()
+  public click(count: number) {} // eslint-disable-line
+
+  public onClick() {
+    // alert(this.greet);
+    this.count++;
+    this.click(this.count);
+  }
 }
 </script>

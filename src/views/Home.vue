@@ -1,17 +1,10 @@
 <template>
-  <div class="home">
-    <MyButton/>
-  </div>
+  <div class="home"></div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import MyButton from "@/components/MyButton.vue";
 
-@Component({
-  components: {
-    MyButton
-  }
-})
+@Component
 export default class Home extends Vue {}
 </script>
